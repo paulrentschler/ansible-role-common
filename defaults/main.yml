@@ -1,2 +1,10 @@
 ---
-# defaults file for common
+# default variables for the common role
+
+# should the /usr/local/scripts directory be created
+common_scripts_directory: yes
+
+# owner and group for the scripts directory
+common_scripts_owner: "{{ devops_user|default(ansible_user) }}"
+common_scripts_group: "devops"
+

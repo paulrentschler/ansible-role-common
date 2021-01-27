@@ -1,2 +1,24 @@
 ---
-# tasks file for common
+# Install and configure common tools for all servers
+- name: install git, man, and wget
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - git
+    - man
+    - wget
+  become: yes
+
+
+# Create a directory to house custom scripts
+- name: create scripts directory
+  file:
+    path: /usr/local/scripts
+    state: directory
+    owner: "{{ common_scripts_owner }}"
+    group: "{{ common_scripts_group }}"
+    mode: 0775
+  become: yes
+  when: common_scripts_directory|bool
+
