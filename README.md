@@ -5,6 +5,17 @@ paulrentschler.common
 
 Installs and configures software for all Ubuntu Linux machines.
 
+Specifically in installs the following packages:
+
+* git
+* man
+* wget
+
+It sets up the `cls` alias for all users which clears the terminal screen (like `clear`) and also sends an escape code that clears the terminal history/scrollback.
+
+A common scripts directory (`/usr/local/scripts`) is optionally created (see role variables below).
+
+
 Requirements
 ------------
 
@@ -45,9 +56,9 @@ Simple version that creates the scripts directory:
 Install the software but do **not** create the scripts directory:
     - hosts: all
       roles:
-        - { role: paulrentschler.common,
+        - role: paulrentschler.common
+          vars:
             common_scripts_directory: no
-            }
 
 
 License

@@ -1,7 +1,7 @@
 ---
 # Install and configure common tools for all servers
 - name: install git, man, and wget
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   with_items:
@@ -10,10 +10,23 @@
     - wget
   become: yes
 
+# This command clears the terminal (like `clear`) AND
+#   it issues an escape code to clear the terminal's history/scrollback
+- name: alias to clear screen and history
+  ansible.builtin.lineinfile:
+    path: /etc/profile.d/alias_cls.sh
+    regexp: "^alias cls="
+    line: "alias cls=\"clear && printf '\033[3J'\""
+    owner: root
+    group: root
+    mode: 0644
+    state: present
+    create: yes
+  become: yes
 
 # Create a directory to house custom scripts
 - name: create scripts directory
-  file:
+  ansible.builtin.file:
     path: /usr/local/scripts
     state: directory
     owner: "{{ common_scripts_owner }}"
