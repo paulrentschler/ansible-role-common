@@ -1,6 +1,8 @@
 paulrentschler.common
 =====================
 
+[![MIT licensed][mit-badge]][mit-link]
+
 Installs and configures software for all Ubuntu Linux machines.
 
 Requirements
@@ -51,10 +53,14 @@ Install the software but do **not** create the scripts directory:
 License
 -------
 
-MIT
+[MIT][mit-link]
 
 
 Author Information
 ------------------
 
 Created by Paul Rentschler in 2021.
+
+
+[mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[mit-link]: https://github.com/paulrentschler/ansible-role-common/blob/master/LICENSE
