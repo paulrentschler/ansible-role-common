@@ -16,7 +16,7 @@
   ansible.builtin.lineinfile:
     path: /etc/profile.d/alias_cls.sh
     regexp: "^alias cls="
-    line: "alias cls=\"clear && printf '\033[3J'\""
+    line: "alias cls=\"clear && printf '\\033[3J'\""
     owner: root
     group: root
     mode: 0644
