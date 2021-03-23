@@ -8,6 +8,7 @@
     - git
     - man
     - wget
+    - net-tools
   become: yes
 
 # This command clears the terminal (like `clear`) AND
